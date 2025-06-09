@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -166,5 +171,79 @@
         </AnchorPane>
         <Line endX="1023.5999755859375" endY="-3.814697265625E-6" layoutX="244.0" layoutY="61.0" startX="-67.59999084472656" startY="-3.814697265625E-6" stroke="#948585" />
         <Line endX="-59.9071044921875" endY="38.866668701171875" layoutX="1167.0" layoutY="12.0" startX="-59.9071159362793" startY="-7.62939453125E-6" stroke="#948585" />
+      <Label layoutX="181.0" layoutY="105.0" text="Insert movie details" textFill="#faf4f4">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleField" layoutX="211.0" layoutY="181.0" prefHeight="40.0" prefWidth="434.0" promptText="Movie title">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="titleError" layoutX="210.0" layoutY="222.0" text="This field is required" textFill="#e70e0e">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="genreChoiceBoxError" layoutX="210.0" layoutY="291.0" text="This field is required" textFill="#e70e0e">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Line endX="-33.2667236328125" endY="204.93338012695312" layoutX="760.0" layoutY="301.0" startX="-33.2667236328125" startY="-123.60000610351562" stroke="#948585" />
+      <TextArea fx:id="descriptionField" layoutX="210.0" layoutY="315.0" prefHeight="200.0" prefWidth="434.0" promptText="Description">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="descriptionError" layoutX="212.0" layoutY="515.0" text="This field is required" textFill="#e70e0e">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="790.0" layoutY="231.0" text="Upload Thumbnail :" textFill="#faf4f4">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="791.0" layoutY="398.0" text="Upload Movie :" textFill="#faf4f4">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="981.0" layoutY="192.0" prefHeight="95.0" prefWidth="200.0" style="-fx-background-color: gray;">
+         <children>
+            <ImageView fx:id="thumbnailField" fitHeight="100.0" fitWidth="200.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="981.0" layoutY="361.0" prefHeight="95.0" prefWidth="200.0" style="-fx-background-color: gray;" />
+      <MediaView fx:id="videoField" fitHeight="100.0" fitWidth="200.0" layoutX="981.0" layoutY="358.0" />
+      <Button layoutX="677.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="26.0" prefWidth="80.0" text="Save">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="thumbnailError" layoutX="979.0" layoutY="283.0" text="This field is required" textFill="#e70e0e">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="videoError" layoutX="983.0" layoutY="453.0" text="This field is required" textFill="#e70e0e">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="genreComboBox" layoutX="210.0" layoutY="249.0" prefHeight="41.0" prefWidth="434.0" promptText="Select a genre" />
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="1062.0" layoutY="301.0" onMouseClicked="#handleThumbnailUpload" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@../../../../assets/upload_thumbnail_icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="1058.0" layoutY="472.0" onMouseClicked="#handleVideoUpload" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@../../../../assets/upload_video_icon.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

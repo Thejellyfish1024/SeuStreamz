@@ -1,5 +1,7 @@
 package bd.edu.seu.seustreamz.models;
 
+import bd.edu.seu.seustreamz.services.SubscriptionService;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +13,11 @@ public class User {
     private String profileImageUrl;
     private String currentSubscription;
     private List<String> subscriptionHistory;
-    private List<String>  watchHistory;
-    private List<String>  favorites;
+    private List<String> watchHistory;
+    private List<String> favorites;
     private LocalDateTime createdAt;
 
+    // Constructors
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -39,6 +42,30 @@ public class User {
         this.createdAt = createdAt;
     }
 
+
+    // Methods
+    public int getTotalSubscriptionsCount() {
+        SubscriptionService subscriptionService = new SubscriptionService();
+        return subscriptionService.getUserSubscriptionsCount(this.email);
+    }
+
+    public double getTotalRevenue() {
+        double revenue = 0;
+        SubscriptionService subscriptionService = new SubscriptionService();
+        List<Subscription> mySubscriptions = subscriptionService.getUserSubscriptionsByEmail(this.email);
+        for (Subscription subscription : mySubscriptions) {
+            revenue += subscription.getPrice();
+        }
+        return revenue;
+    }
+
+    public String getCurrentSubscriptionIfExists() {
+        if (this.currentSubscription.isEmpty() || this.currentSubscription == null || this.currentSubscription.equals("")) {
+            return "None";
+        } else return this.currentSubscription;
+    }
+
+    // Getters Setters
     public String getName() {
         return name;
     }

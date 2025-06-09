@@ -1,7 +1,7 @@
 package bd.edu.seu.seustreamz.controllers;
 
 import bd.edu.seu.seustreamz.Main;
-import bd.edu.seu.seustreamz.services.LoginLoginRegistrationService;
+import bd.edu.seu.seustreamz.services.UserService;
 import bd.edu.seu.seustreamz.utils.CommonAlert;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,13 +53,13 @@ public class LoginController implements Initializable {
         if (isValid) {
             String email = emailField.getText().toLowerCase().trim();
             String password = passwordField.getText();
-            LoginLoginRegistrationService loginLoginRegistrationService = new LoginLoginRegistrationService();
+            UserService userService = new UserService();
             CommonAlert commonAlert = new CommonAlert();
-            if (loginLoginRegistrationService.getUserByEmail(email) == null) {
+            if (userService.getUserByEmail(email) == null) {
                 commonAlert.errorAlert("No account with this email exists!");
-            } else if (!(loginLoginRegistrationService.getUserByEmail(email).getPassword().equals(password))) {
+            } else if (!(userService.getUserByEmail(email).getPassword().equals(password))) {
                 commonAlert.errorAlert("Credentials do not match!");
-            } else if (loginLoginRegistrationService.getUserByEmail(email).getPassword().equals(password)) {
+            } else if (userService.getUserByEmail(email).getPassword().equals(password)) {
                 clearInputFields();
                 System.out.println("Login successful!");
                 goToHome();

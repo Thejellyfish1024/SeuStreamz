@@ -2,7 +2,7 @@ package bd.edu.seu.seustreamz.controllers;
 
 import bd.edu.seu.seustreamz.Main;
 import bd.edu.seu.seustreamz.models.User;
-import bd.edu.seu.seustreamz.services.LoginLoginRegistrationService;
+import bd.edu.seu.seustreamz.services.UserService;
 import bd.edu.seu.seustreamz.utils.CommonAlert;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -70,16 +70,16 @@ public class RegistrationController implements Initializable {
         }
 
         if (isValid) {
-            LoginLoginRegistrationService loginRegistrationService = new LoginLoginRegistrationService();
+            UserService userService = new UserService();
             CommonAlert commonAlert = new CommonAlert();
-            if (loginRegistrationService.getUserByEmail(emailField.getText().trim()) != null) {
+            if (userService.getUserByEmail(emailField.getText().trim()) != null) {
                 commonAlert.errorAlert("User with same email already exists");
             } else {
                 String name = nameField.getText().trim();
                 String email = emailField.getText().toLowerCase().trim();
                 String password = passwordField.getText();
                 User newUser = new User(name, email, password);
-                loginRegistrationService.insertUser(newUser);
+                userService.insertUser(newUser);
                 clearInputFields();
                 commonAlert.successAlert("Registration successful!");
             }

@@ -10,10 +10,12 @@ import java.io.IOException;
 
 public class Main extends Application {
     public static Stage stage;
+    public static String userEmail;
+    public static int selectedMovie;
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("users.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280 ,720);
         stage.setTitle("Seu Streamz");
         stage.setScene(scene);

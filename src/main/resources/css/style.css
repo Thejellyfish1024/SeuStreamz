@@ -4,3 +4,35 @@
     -fx-max-width: 0;
     -fx-max-height: 0;
 }
+/* Table cells */
+.table-view .table-cell {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-border-color: grey;
+    -fx-border-width: 0 0 1px 1px;
+}
+
+/* Header */
+.table-view .column-header-background {
+    -fx-background-color: #111111;
+    /*-fx-border-color: grey;*/
+}
+
+/* Default row background */
+.table-row-cell {
+    -fx-background-color: black;
+}
+
+/* Selected row styling */
+.table-row-cell:selected .table-cell{
+    -fx-background-color: #2196F3; /* Blue */
+}
+
+/* Selected cell inside selected row */
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+
+/* ------------------------------------------------------- */

@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
+        import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -25,8 +25,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class MovieController implements Initializable {
-
+public class UpdateMovieController implements Initializable {
     @FXML
     private Label descriptionError;
 
@@ -104,7 +103,7 @@ public class MovieController implements Initializable {
     }
 
     @FXML
-    void handleSave() {
+    void handleUpdate() {
         clearErrors();
 
         String title = titleField.getText();
@@ -145,14 +144,9 @@ public class MovieController implements Initializable {
         if (isValid) {
             CommonAlert commonAlert = new CommonAlert();
             MovieService movieService = new MovieService();
-            if ((movieService.getMovieByTitle(title) != null) && (movieService.getMovieByTitle(title).getTitle().equalsIgnoreCase(title))) {
-                commonAlert.errorAlert("Movie with this title already exists");
-                return;
-            }
             Movie newMovie = new Movie(title, description, genre, videoLink, thumbnailLink);
-            movieService.insertMovie(newMovie);
-            clearInputs();
-            commonAlert.successAlert("Movie uploaded successfully!");
+            movieService.updateMovie(Main.selectedMovie, newMovie);
+            commonAlert.successAlert("Movie updated successfully!");
         }
 
     }
@@ -272,10 +266,36 @@ public class MovieController implements Initializable {
         videoField.setMediaPlayer(null);
     }
 
+    void setSelectedMovieDetails(){
+        MovieService movieService = new MovieService();
+        Movie movie = movieService.getMovieById(Main.selectedMovie);
+
+        // title, description, genre
+        titleField.setText(movie.getTitle());
+        descriptionField.setText(movie.getDescription());
+        genreComboBox.setValue(movie.getGenre());
+
+        // thumbnail
+        String thumbnailPath = movie.getThumbnailLink();
+        Image image = new Image(thumbnailPath);
+        thumbnailField.setImage(image);
+        thumbnailField.setPreserveRatio(false);
+        thumbnailField.setFitWidth(thumbnailField.getFitWidth());
+        thumbnailField.setFitHeight(thumbnailField.getFitHeight());
+
+        // video
+        Media media = new Media(movie.getVideoLink());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        videoField.setMediaPlayer(mediaPlayer);
+        videoField.setPreserveRatio(false);
+        videoField.setFitWidth(videoField.getFitWidth());
+        videoField.setFitHeight(videoField.getFitHeight());
+        mediaPlayer.setAutoPlay(true);
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(Main.selectedMovie);
         clearErrors();
         clearInputs();
 
@@ -288,5 +308,7 @@ public class MovieController implements Initializable {
         genreTypeOptions.add("Horror");
         genreTypeOptions.add("Thriller");
         genreComboBox.setItems(genreTypeOptions);
+
+        setSelectedMovieDetails();
     }
 }

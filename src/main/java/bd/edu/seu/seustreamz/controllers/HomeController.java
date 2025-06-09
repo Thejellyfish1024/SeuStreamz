@@ -42,39 +42,39 @@ public class HomeController implements Initializable {
         List<Movie> ls = new ArrayList<>();
         String src = "/assets/ImportedPhoto_1705169482932.jpg";
         Movie movie = new Movie();
-        movie.setName("Rich Dad Poor Dad");
-        movie.setAuthor("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         movie = new Movie();
-        movie.setName("JavaFX");
-        movie.setAuthor("Rahim");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         movie = new Movie();
-        movie.setName("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setAuthor("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         movie = new Movie();
-        movie.setName("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setAuthor("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         movie = new Movie();
-        movie.setName("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setAuthor("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         movie = new Movie();
-        movie.setName("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setAuthor("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
-        movie.setImgSrc(src);
+        movie.setTitle("Rich Dad Poor Dad");
+        movie.setDescription("Rich Dad Poor Dad Rich Dad Poor Dad Rich Dad Poor Dad ");
+        movie.setThumbnailLink(src);
         ls.add(movie);
 
         return ls;

@@ -22,10 +22,10 @@ public class CardController {
     private Label nameField;
 
     public void setData(Movie movie){
-        Image image = new Image(getClass().getResourceAsStream(movie.getImgSrc()));
+        Image image = new Image(getClass().getResourceAsStream(movie.getThumbnailLink()));
         imageField.setImage(image);
-        nameField.setText(movie.getName());
-        authorField.setText(movie.getAuthor());
+        nameField.setText(movie.getTitle());
+        authorField.setText(movie.getDescription());
     }
 }
 
