@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.MediaView?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="bd.edu.seu.seustreamz.controllers.VideoPlayerController">
+
+    <center>
+        <StackPane>
+            <MediaView fx:id="mediaView" fitWidth="600" fitHeight="450" preserveRatio="true"/>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <VBox spacing="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Slider fx:id="seekSlider"/>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Play" onAction="#handlePlay"/>
+                <Button text="Pause" onAction="#handlePause"/>
+                <Button text="Stop" onAction="#handleStop"/>
+                <Label text="Volume:"/>
+                <Slider fx:id="volumeSlider" prefWidth="50"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
